@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'io.pedromanoel.benchmark.BenchmarkRunner'
+
+
+group 'io.pedromanoel'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.openjdk.jmh:jmh-core:1.19'
+    implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.19'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    testImplementation "org.assertj:assertj-core:3.11.1"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
